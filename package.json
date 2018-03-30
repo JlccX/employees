@@ -14,6 +14,7 @@
     "bootstrap": "^4.0.0-beta.3",
     "connect": "^3.6.6",
     "cookie-session": "^2.0.0-beta.3",
+    "core-util-is": "^1.0.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
