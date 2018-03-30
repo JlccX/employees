@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body class="wrapper">
+        <header>
+            <% include ../partials/header %>
+        </header>
+        <div id="content">
+            <div class="table">
+                <% if (Members && Members.length>0) { %>
+                    <table class="inline-block center">
+                        <tr class="button">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><input type="submit" onclick="createMember();" value="Create" title="Add a new member to the organization."></td>
+                        </tr>
+                        <tr class="name">
+                            <td>SSN</td>
+                            <td>Firstname</td>
+                            <td>Lastname</td>
+                            <td>Cellphone</td>
+                            <td></td>
+                        </tr>
+                        <% Members.forEach(function(row) { %>
+                        <tr>
+                            <td> <%= row.SSN %> </td>
+                            <td> <%= row.Firstname %> </td>
+                            <td> <%= row.Lastname %> </td>
+                            <td> <%= row.Cellphone %> </td>
+                            <td class="buttons">
+                                <div class="input row">
+                                    <a href=/admin/member?id=<%= row.Id %>>Update</a>
+                                    <a style="margin-top:5px;"  class="remove" onclick="deleteRow(<%= row.Id %>);">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </table>
+                <% } else { %>
+                    <table class="inline-block center">
+                        <tr class="button">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><input type="submit" style="width:120%;" onclick="createMember();" value="Create" title="Add a new member to the organization."></td>
+                        </tr>
+                        <tr class="name">
+                            <td rowspan="4" style="width:75%;">
+                                <p>
+                                    There is no members data available.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                <% } %>
+            </div>
+
+        </div>
+        
+        <footer>
+            <% include ../partials/footer %>
+        </footer>        
+
+        <script src="../js/jquery-3.2.1.js"></script>
+
+        <script>
+            function deleteRow(id) {
+                var isRemoved = confirm("Are you sure that you want to remove the member ?");
+                console.log("The id to remove is: "+id+". Confirm: "+isRemoved);
+                if(isRemoved){
+                    console.log("The user will be deleted.");
+                    $.ajax({
+                        url : "/admin/delete",
+                        type: "POST",
+                        dataType: "application/json",
+                        data: {
+                            id: id
+                        }
+                    })
+                    .done(function (result, status, xhr) {
+                        console.log("The row was removed xyz.");
+                    })
+                }
+                else{
+                    console.log("The user didn´t confirmed.");
+                }
+                //return false;
+            }
+            function createMember(){
+                console.log("createMember event.");
+                window.location.href = "/admin/member";
+            }
+        </script>
+
+    </body>
+</html>

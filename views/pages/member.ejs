@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body class="wrapper">
+        <header>
+            <% include ../partials/header %>
+        </header>
+        <div id="content">
+            <div class="edition">
+                <fieldset>
+                    <legend>Member edition</legend>
+                <form action="/admin/member" method="post">
+                    <div class="input">
+                        <strong>*</strong>
+                        <label>Firstname:</label>
+                        <input id="firstname" name="firstname" type="text" value="<%= member.Firstname %>" autocomplete="off" />
+                    </div>
+                    <div class="input">
+                        <strong>*</strong>
+                        <label>Lastname</label>
+                        <input id="lastname" name="lastname" type="text" value="<%= member.Lastname %>" autocomplete="off" />
+                    </div>
+                    <div class="input date">
+                        <label>Register Date:</label>
+                        <label style="text-align:left;"><%= member.RegisterDate %></label>
+                        <input type="hidden" name="registerDate" value="<%= member.RegisterDate %>">
+                    </div>
+                    <div class="input">
+                        <strong>*</strong>
+                        <label style="margin-top:-10px;" >Social Security Number:</label>
+                        <input id="ssn" name="ssn" type="text" value="<%= member.SSN %>" autocomplete="off" />
+                    </div>
+                    <div class="input">
+                        <label>Phone:</label>
+                        <input id="phone" name="phone" type="text" value="<%= member.Phone %>" autocomplete="off" />
+                    </div>
+                    <div class="input">
+                        <strong>*</strong>
+                        <label>Cellphone:</label>
+                        <input name="cellphone" type="text" value="<%= member.Cellphone %>" autocomplete="off" />
+                    </div>
+                    <div class="input">
+                        <label>Email:</label>
+                        <input name="email" type="text" value="<%= member.Email %>" autocomplete="off" />
+                    </div>
+                    
+                    <div class="input double">
+                        <label>Address:</label>
+                        <textarea name="address" cols="20" rows="3" autocomplete="off" >
+                        <%= member.Address %>
+                        </textarea>
+                        <strong style="float:left;">*</strong>
+                    </div>
+
+                    <div class="input">
+                        <label></label>
+                        <input type="submit" onclick="redirectList(); return false;" value="Cancel" />
+                    </div>
+
+                    <div class="input">
+                        <label></label>
+                        <input type="submit" id="save-button" value="Save" />
+                    </div>
+
+                    <div class="buttons">
+                        <!-- <a href="/admin/members-list" >Cancel</a> -->
+                        <input type="hidden" name="id" value="<%= member.Id %>">
+                    </div>
+                </form>
+                <div>
+                    <label>The fields marked with: <strong class="required" >*</strong> are required. </label>
+                </div>
+                </fieldset>
+            </div>
+        </div>
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+
+        <script src="../js/jquery-3.2.1.js"></script>        
+
+        <script>
+            function redirectList(){
+                window.location.href = "/admin/members-list";
+            }
+        </script>
+        
+    </body>
+</html>

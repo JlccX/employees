@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+        padding-bottom:0;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="home">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">RRHH
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="listado-personal">Employees</a></li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</nav>
+
+  
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div class="col-sm-8 text-left">
+
+     <div id="form-inputs">
+      <div class="form-style-2">
+        <div class="form-style-2-heading">Employee data</div>
+        <form action="/employees-edition" method="post">
+            <div class="input">
+                <label for="firstname"><span>Firstname <span class="required">*</span></span><input id="firstname" type="text" class="input-field" name="firstname" value="" /></label>
+            </div>
+            <div class="input">
+                <label for="lastname"><span>Lastname <span class="required">*</span></span><input id="lastname" type="text" class="input-field" name="lastname" value="" /></label>
+            </div>
+            <div class="input">              
+              <label for="socialSecurityNumber"><span>Social security number <span class="required">*</span></span><input id="socialSecurityNumber" type="text" class="input-field" name="socialSecurityNumber" value="" /></label>        
+            </div>
+            <div class="input">
+                <label for="title"><span>Title <span class="required">*</span></span><input id="title" type="text" class="input-field" name="title" value="" /></label>
+              </div>
+            <div class="input">
+              <label for="salary"><span>Salary <span class="required">*</span></span><input id="salary" type="text" class="input-field" name="salary" value="" /></label>
+            </div>
+            <div class="input">
+              <label for="city"><span>City <span class="required">*</span></span><input id="city" name="city" class="input-field"/></label>
+            </div>
+            <div class="input">
+                <label for="cellphone"><span>Cellphone <span class="required">*</span></span><input id="cellphone" type="text" class="input-field" name="cellphone" value="" /></label>
+            </div>
+        
+            <div class="input">
+                <label><span>&nbsp;</span><input type="submit" value="Submit" /></label>
+            </div>
+        
+        </form>
+        </div>
+     </div>
+  </div>
+</div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>© 2018 All rights reserved.</p>
+</footer>
+
+
+
+
+
+<script  type="text/javascript" src="../jquery/dist/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.8.2/umd/popper.js"></script> -->
+<script  type="text/javascript" src="../bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.local.css">
+<link rel="stylesheet" href="../css/style.css">
+<script>
+    $(document).ready(function () {
+        
+    });
+</script>
+
+
+</body>
+</html>
